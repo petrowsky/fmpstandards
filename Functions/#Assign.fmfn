@@ -28,6 +28,8 @@
  * 		function does not handle that for you.
  *
  * HISTORY:
+ * 		MODIFIED on 2011-03-19 by perrens@gmail.com to respect default trailing ¶
+ * 		of # ( name; value ) function when checking to append $~.
  * 		MODIFIED on 2011-03-03 by matt@filemakermagazine.com to not use $void and
  * 		only include trailing $~ if parameters is non conforming to Let()
  * 		MODIFIED on 2010-10-04 by jeremy@kyologic.com to return explicit True or
@@ -46,7 +48,7 @@ Let (
 	~evaluateString =
 		"Let( [¶"
 		& parameters
-		& If ( Right ( parameters ; 1 ) = ";"; "$~ = $~")  //terminating variable to keep semicolon-delimited sytax in variableString consistent
+		& If ( Right ( parameters; 1 ) = ";" or ( Right ( parameters; 2 ) = ";¶" ); "$~ = $~")  //terminating variable to keep semicolon-delimited sytax in variableString consistent
 		& "¶];¶"
 		& "True¶)";
 
