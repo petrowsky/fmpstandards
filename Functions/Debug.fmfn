@@ -50,6 +50,7 @@ If ( Developer;
 			"	LastError";
 			"	LastODBCError";
 			"User";
+			"	UserCount";
 			"	AccountName";
 			"	AccountPrivilegeSetName";
 			"	CurrentPrivilegeSetName";
