@@ -6,7 +6,7 @@
  *		none
  *
  * RETURNS:
- *		string) A list of informative values
+ *		(string) A list of informative values
  * 		about the current FMP environment.
  *
  * DEPENDENCIES:
@@ -129,7 +129,6 @@ If ( Developer;
 
 			~line
 		);
-		~lastValue = RightWords ( ~input ; 1 );
 		~exit = $~debugCounter = ValueCount ( ~input )
 	];
 		Let ( [
