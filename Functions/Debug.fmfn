@@ -64,6 +64,21 @@ If ( Developer;
 			"	LayoutTableName";
 			"	ActiveLayoutObjectName";
 			"	ActivePortalRowNumber";
+			"Windows";
+			"	WindowName";
+			"	WindowMode";
+			"	WindowOrientation";
+			"	WindowStyle";
+			"	WindowZoomLevel";
+			"	WindowVisible";
+			"	WindowTop";
+			"	WindowLeft";
+			"	WindowHeight";
+			"	WindowWidth";
+			"	WindowContentHeight";
+			"	WindowContentWidth";
+			"	WindowDesktopHeight";
+			"	WindowDesktopWidth";
 			"Records";
 			"	RecordID";
 			"	RecordNumber";
@@ -101,9 +116,10 @@ If ( Developer;
 				~padding = "                              "; // 30 chars is longest function name
 				~result = Evaluate ( "Get(" & ~function & ")" )
 			];
+				// Output
 				~function
 				& Left ( ~padding ; Length ( ~padding ) - Length ( ~function ) ) // spacing out result
-				& If ( valuecount ( ~result ) > 1; // some functions return multiple lines
+				& If ( ValueCount ( ~result ) > 1; // some functions return multiple lines
 					Substitute ( ~result ; ¶ ; ¶ & ~tab & Left ( ~padding ; Length ( ~padding ) - 1 ) );
 					~result
 				)
@@ -112,12 +128,13 @@ If ( Developer;
 			~line
 		);
 		~lastValue = RightWords ( ~input ; 1 );
-		~itemCount = ValueCount ( ~input );
-		$~debugOutput = List ( $~debugOutput ; ~eval )
+		~exit = $~debugCounter = ValueCount ( ~input )
 	];
-		If ( $~debugCounter = ~itemCount;
-			// don't want the result to continously build and length will vary based on function results with multiple lines
-			Left ( $~debugOutput ; Position ( $~debugOutput ; ¶ ; Position ( $~debugOutput ; ~lastValue ; 1 ; 1 ) ; 1 ) - 1 ); // better way to do this?
-			Let ( $~debugCounter = $~debugCounter + 1 ; Debug ) )
+		Let ( [
+			$~debugCounter = If ( ~exit ; "" ; $~debugCounter + 1 );
+			$~debugOutput = List ( $~debugOutput ; ~eval )
+		];
+			If ( ~exit ; $~debugOutput & Let ( $~debugOutput = "" ; "") ; Debug )
+		)
 	)
 )
