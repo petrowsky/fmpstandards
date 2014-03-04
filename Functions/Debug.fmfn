@@ -15,8 +15,9 @@
  * NOTES:
  *
  * RELEASE:
- * 		101009 - Initial by Matt Petrowsky
+ *		2014-03-04 - Updated recursion and added more functions.
  * 		2013-01-25 - Updated to be recursive and use better output. Included more functions
+ * 		101009 - Initial by Matt Petrowsky
  * =====================================================
  * 
  */
