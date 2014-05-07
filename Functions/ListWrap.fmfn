@@ -1,0 +1,28 @@
+/**
+ * =====================================
+ * ListWrap ( theList ; prefix ; suffix )
+ *
+ * RETURNS:
+ *		A formatted list with the prefix and
+ *		suffix applied to the inbound list.
+ *
+ * PARAMETERS:
+ *		theList = (text) a return delimited list of values
+ *		prefix = (text) a string of characters used for the prefix
+ *		prefix = (text) a string of characters used for the suffix
+ *
+ * DEPENDENCIES:
+ *		none
+ *
+ * HISTORY:
+ *		CREATED on 2014-MAY-07 Matt Petrowsky matt@isoproductions.com
+ *
+ * REFERENCES:
+ *		none
+ * =====================================
+ */
+Let ( [
+	~newList = Substitute ( prefix & theList ; ¶ ; suffix & ¶ & prefix )
+];
+	Left ( ~newList ; Length ( ~newList ) - Length ( prefix ) - 1 ) // account for ¶
+)
