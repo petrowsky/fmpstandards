@@ -15,6 +15,7 @@
  * NOTES:
  *
  * RELEASE:
+ *		2014-05-08 - Injecting LayoutID despite it not being an internal function.
  *		2014-03-04 - Updated recursion and added more functions.
  * 		2013-01-25 - Updated to be recursive and use better output. Included more functions
  * 		101009 - Initial by Matt Petrowsky
@@ -110,12 +111,12 @@ If ( Developer;
 			"	PreferencesPath";
 			"	SystemDrive";
 		);
+		~padding = "                              "; // 30 chars is longest function name
 		~tab = "	";
 		~line = GetValue ( ~input ; $~debugCounter );
 		~eval = If ( Left ( ~line ; 1 ) = ~tab ; // evaluate lines prefixed with tabs
 			Let ( [
 				~function = Trim ( ~line );
-				~padding = "                              "; // 30 chars is longest function name
 				~result = Evaluate ( "Get(" & ~function & ")" )
 			];
 				// Output
@@ -135,7 +136,17 @@ If ( Developer;
 			$~debugCounter = If ( ~exit ; "" ; $~debugCounter + 1 );
 			$~debugOutput = List ( $~debugOutput ; ~eval )
 		];
-			If ( ~exit ; $~debugOutput & Let ( $~debugOutput = "" ; "") ; Debug )
+				If ( ~exit ;
+					Substitute (
+						$~debugOutput & Let ( $~debugOutput = "" ; "");
+					[ "Layout¶" ; "Layout¶"
+									& ~tab
+									& "LayoutID"
+									& Left ( ~padding ; Length ( ~padding ) - Length ( "LayoutID" ) - 1 )
+									&  GetValue ( LayoutIDs ( Get ( FileName ) ) ; Get ( LayoutNumber ) )
+									&¶ ]
+					) ;
+				Debug )
 		)
 	)
 )
