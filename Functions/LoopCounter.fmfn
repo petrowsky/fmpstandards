@@ -19,7 +19,7 @@
  * 		(variable) Incremented variable
  *
  * DEPENDENCIES:
- *		none 
+ *		none
  *
  * NOTES:
  *		A local variable is created, don't use the same name for
@@ -29,7 +29,7 @@
  * HISTORY:
  *		9/28/11 - Matt Petrowsky
  * =====================================================
- * 
+ *
  */
 
 Let ( ~variable = "$" & Substitute ( iterator ; "$" ; "" );

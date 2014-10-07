@@ -4,7 +4,7 @@
  *
  * PURPOSE:
  *		Return the numerical position of a value within a list
- * 
+ *
  * RETURNS:
  *		(number) position of value
  *
@@ -18,7 +18,7 @@
  * HISTORY:
  *		4/5/11 - Petrowsky - Added to custom functions
  * =====================================================
- * 
+ *
  */
 
 Let ( [

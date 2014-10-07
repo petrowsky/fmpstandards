@@ -1,7 +1,7 @@
 /**
  * =====================================================================
  * ObjectID ( object; type; file; layout )
- * 
+ *
  * PARAMETERS:
  *		@object supply either the name or internal id of an object
  *		        (see type variable for supported objects)
@@ -23,7 +23,7 @@
  *		(table::fieldname) AND an empty var.layout parameter, the
  *		function will assume you are referring not to current layout but
  *		to the table occurrence found in the _TLFSV
- * 
+ *
  * =====================================================================
  */
 
@@ -35,7 +35,7 @@ Let ( [
 	);
 	layout = Case (
 							IsEmpty ( layout );
-								Case ( 
+								Case (
 									PatternCount ( object; "::" );
 										GetValue ( Substitute ( object; "::"; ¶ ); 1 );
 								Get ( LayoutName ) // default
@@ -70,14 +70,14 @@ Let ( [
 
 	Case (
 		var.object = GetAsNumber ( var.object );
-    
+
 			// Convert ID -> Name
 			Case (
 				not IsEmpty ( FilterValues ( var.object; var.ids ));
 					GetValue ( var.names; Let ([
 																			_text = var.ids;
 																			_item = var.object;
-																			_adj = ¶ & _text & ¶ 
+																			_adj = ¶ & _text & ¶
 																];
 																	PatternCount ( Left ( _adj; Position ( _adj; ¶ & _item & ¶; 1; 1 ) + 1 ); ¶ )
 																)
@@ -125,7 +125,7 @@ v.1.2, June 2008
 v.1, May 2008
     Requires: PositionValue ( _text; _searchValue; _start; _occurrence )
 
-// Test code for raw data 
+// Test code for raw data
 Let ( [
   f = Get ( FileName );
   l = Get ( LayoutName )
@@ -148,5 +148,5 @@ Let ( [
     ValueListIDs ( f )
   )
 )
-    
+
 */

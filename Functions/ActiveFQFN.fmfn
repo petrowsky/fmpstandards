@@ -5,10 +5,10 @@
  * PURPOSE:
  *		Convenience function for working with
  *		absolute field name references.
- *		
+ *
  * RETURNS:
  *		(string) fully qualified field name reference
- *		
+ *
  * PARAMETERS:
  *		none
  *

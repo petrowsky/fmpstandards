@@ -7,13 +7,13 @@
  * RETURNS:
  *		(string) Return delimited list of values
  * DEPENDENCIES:
- *		none 
+ *		none
  * NOTES:
  *		none
  * HISTORY:
  *		1/13/11 - Petrowsky - Modified to filemakerstandards.org format
  * =====================================================
- * 
+ *
  */
 
 Let ( [
@@ -23,7 +23,7 @@ Let ( [
 
 ];
 
-	Case ( 
+	Case (
 		PatternCount ( ~newList; ~match );
 			Let ( [
 				~removed = Substitute ( ~newList; ~match; "" ); // Kill matching values
