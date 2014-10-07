@@ -1,7 +1,7 @@
 /*
  * =====================================================
  * VariableList ( keys; values; scope )
- * 
+ *
  * RETURNS:
  *		(string) key/value pairs as $key = value in
  *		positional order
@@ -23,7 +23,7 @@
  * =====================================================
  *
  */
- 
+
 Let ( [
 	~singleValue = ValueCount ( keys ) = 1 and ValueCount ( values ) = 1; // only one key/value pair
 	~isValid  = ValueCount ( keys ) = ValueCount ( values ); // both lists have the same number of values
@@ -41,11 +41,11 @@ Let ( [
 	Case (
 		~singleValue;
 			~string;
-			
+
 		~isValid and ~notEmpty;
 			~string &
 			VariableList ( MiddleValues ( keys ; 2 ; 1000000 ) ; MiddleValues ( values ; 2 ; 1000000 ) ; scope );
-		
+
 		// default
 		"ERROR » Lists don't match in length"
 	)

@@ -1,7 +1,7 @@
 /*
  * =====================================================
  * WindowProperties ( )
- * 
+ *
  * RETURNS:
  * 		Let () formatted list of global variables with prefix of 'window'
  *
@@ -22,7 +22,7 @@
  *		See WindowCenter companion function. It will center a window within a parent
  *		window when $parentWindow[Value] variables are set.
  * =====================================================
- * 
+ *
  */
 
 Substitute (

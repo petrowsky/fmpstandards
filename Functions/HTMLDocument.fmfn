@@ -5,7 +5,7 @@
  * PURPOSE:
  *		Create valid HTML output which can be either exported or
  *		used within a web viewer for data display.
- * 
+ *
  * RETURNS:
  *		(string) valid HTML output
  *
@@ -29,7 +29,7 @@
  * REFERENCES:
  *		none
  * =====================================================
- * 
+ *
  */
 
 List(

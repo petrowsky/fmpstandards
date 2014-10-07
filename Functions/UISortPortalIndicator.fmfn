@@ -46,7 +46,7 @@ Let ( [
 	Case (
 		~isSameSortField;
 			~sortIndicator;
-			
+
 		""
 	)
 )

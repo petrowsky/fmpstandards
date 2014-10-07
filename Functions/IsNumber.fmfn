@@ -1,7 +1,7 @@
 /**
  * =====================================================
  * IsNumber ( value )
- * 
+ *
  * PURPOSE:
  *		Determine if the supplied value is numeric
  * PARAMETERS:
@@ -14,7 +14,7 @@
  *		Adapted from the following function
  *		http://fmfunctions.com/functions_display_record.php?functionId=161
  * =====================================================
- * 
+ *
  */
 
 Let ( [

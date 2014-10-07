@@ -21,6 +21,8 @@
  *		* ~serverIPAddress defaults to first listed if IPAddress is blank
  *
  * HISTORY:
+ *		UPDATED on 2014-04-07 by Matt Petrowsky to account for 13.0v2 fmp:// url changes
+ *		http://help.filemaker.com/app/answers/detail/a_id/13313
  * 		CREATED on 2012-10-04 by Matt Petrowsky (matt@filemakermagazine.com).
  *
  * REFERENCES:
@@ -29,6 +31,7 @@
  */
 
 Let ( [
+	~fmpVersion = Getasnumber ( Get ( ApplicationVersion ) );
 	~currentHost = Get ( HostIPAddress ); // returned by client - server returns localhost
 	~serverIPAddress = If ( IsEmpty ( IPAddress ) ; GetValue ( Get ( SystemIPAddress ) ; 1 ) ; IPAddress ); // *
 	~isMobile = Get ( SystemPlatform ) = 3;
@@ -42,9 +45,12 @@ Let ( [
 		~isServer;
 			~serverIPAddress; // server side scripts would use "127.0.0.1" - which isn't good
 
+		~isLocal and ~fmpVersion ≥ 13.02;
+			"$";
+
 		~isLocal;
 			GetValue ( Get ( SystemIPAddress ) ; 1 ); // assume first ip for local dev
-		
+
 		~currentHost
 	)
 	& "/" & GetAsURLEncoded ( Get ( FileName ) ) & "?script="

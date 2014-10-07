@@ -1,7 +1,7 @@
 /**
  * =====================================================
  * LayoutObjectHierarchy ( content )
- * 
+ *
  * PURPOSE:
  *                Display indented version of LayoutObjectNames
  * PARAMETERS:
@@ -14,7 +14,7 @@
  *                This is a special use function for showing
  *                a developer the hierarchy of Layout objects
  * =====================================================
- * 
+ *
  */
 
 Let ( [

@@ -7,7 +7,7 @@
  *                when you want to extract the name of
  *                the current field and capture a variable
  *                of the same name.
- * 
+ *
  * PARAMETERS:
  *                @field = (reference) a field
  *                @prefix = (enum) either "$" or "$$"
@@ -19,7 +19,7 @@
  * NOTES:
  *                This function has a very specific use
  * =====================================================
- * 
+ *
  */
 
 Let ( [

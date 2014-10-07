@@ -1,7 +1,7 @@
 /**
  * =====================================================
  * DeveloperPropertiesDisplay ( )
- * 
+ *
  * PURPOSE:
  *                Used to display the information created
  *                in the DeveloperProperties function
@@ -13,7 +13,7 @@
  *                Developer(), DeveloperProperties()
  * NOTES:
  * =====================================================
- * 
+ *
  */
 
 If ( Developer;

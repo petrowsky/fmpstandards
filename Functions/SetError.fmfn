@@ -5,10 +5,10 @@
  * PURPOSE:
  *		Explicitly set an error. Useful when setting an application
  *		error or getting a plugin or custom function error
- *		
+ *
  * RETURNS:
  *		(array) A $variable array of $error variables
- *		
+ *
  * PARAMETERS:
  *		type = (enumeration) fmp, app, plugin, func
  *		num = (number) the numerical value for that error type

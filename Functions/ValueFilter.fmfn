@@ -5,10 +5,10 @@
  * PURPOSE:
  *		Extract a return delimited list of values based
  *		on the supplied match value.
- *		
+ *
  * RETURNS:
  *		(string) Return delimited array of matching string values
- *		
+ *
  * PARAMETERS:
  *		match = (string) the target match value
  *		valueList = (string) array of values

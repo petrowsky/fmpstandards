@@ -29,16 +29,16 @@
  *		Adapted from http://www.briandunning.com/cf/473
  *		by Peter Wagemans, SHpartners
  * =====================================================
- * 
+ *
  */
 
 Let ( [
 	// Get the modifier keys
-	
+
 	~keys = Get ( ActiveModifierKeys );
 
 	// Convert keys to their bit values (see note at bottom)
-	
+
 	~command  = Mod ( Int ( ~keys / 16 ) ; 2 );
 	~alt      = Mod ( Int ( ~keys / 8 ) ; 2 );
 	~control  = Mod ( Int ( ~keys / 4 ) ; 2 );
@@ -47,7 +47,7 @@ Let ( [
 
 ];
 	// Result (boolean)
-	
+
 	( ~command xor not PatternCount ( keysList ; "command" ) )
 	and
 	( ~alt xor not ( PatternCount ( keysList ; "alt" ) or PatternCount ( keysList ; "option" ) ) )

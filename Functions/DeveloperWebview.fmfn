@@ -1,7 +1,7 @@
 /**
  * =====================================================
  * DeveloperWebview ( )
- * 
+ *
  * PURPOSE:
  *		Use a web viewer to display developer specific information
  *		about the current layout.
@@ -21,7 +21,7 @@
  * HISTORY:
  *		MODIFIED on 2011-9-6 by matt@filemakermagazine.com - released
  * =====================================================
- * 
+ *
  */
 
 Let ( [
@@ -140,7 +140,7 @@ Let ( [
 				~result = Evaluate ( ~apply )
 			];
 				If ( ~result = "?"; // the CustomList was not evaluated properly
-					"CustomList function is needed for this area"; 
+					"CustomList function is needed for this area";
 					~result // super helpful list of objects with position values
 				)
 			)

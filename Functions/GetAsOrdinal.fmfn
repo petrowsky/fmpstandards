@@ -1,7 +1,7 @@
 /*
  * =====================================================
  * GetAsOrdinal ( number )
- * 
+ *
  * RETURNS:
  *                (string) Ordinal formatted number
  * DEPENDENCIES:
@@ -9,11 +9,11 @@
  * NOTES:
  *                Adapted from http://www.briandunning.com/cf/737
  * =====================================================
- * 
+ *
  */
 
 
-Let ( [ 
+Let ( [
 	~style = "Superscript"; // Can be made null to remove formatting
 	~digit = Int( GetAsNumber( number ) );
 	~tens = Mod ( Abs( ~digit ); 100 )

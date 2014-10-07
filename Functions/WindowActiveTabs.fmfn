@@ -2,7 +2,7 @@
  * =====================================================
  * WindowActiveTabs ()
  *		https://github.com/petrowsky/fmpstandards/blob/master/Functions/WindowActiveTabs.fmfn
- * 
+ *
  * PARAMETERS: none
  * RETURNS:
  *		(list) List of all active frontmost tabs
@@ -28,11 +28,11 @@ Let ( [
 			~isFront
 			and IsEmpty ( ~parentTab ); // does not have a parent
 				True;
-							
+
 			~isFront
 			and PatternCount ( ¶ & $~tabList & ¶; ¶ & ~parentTab & ¶ ); // parent is already in $~tabList
 				True;
-							
+
 			/*Else*/
 				False
 		);
@@ -52,6 +52,6 @@ Let ( [
 		];
 			"" // null
 		)
-	) 
-	
+	)
+
 )

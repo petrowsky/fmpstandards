@@ -5,10 +5,10 @@
  * PURPOSE:
  *		Get a return delimited list of all layout objects from
  *		a specified layout
- *		
+ *
  * RETURNS:
  *		(string) Return delimited array layout objects
- *		
+ *
  * PARAMETERS:
  *		none
  *

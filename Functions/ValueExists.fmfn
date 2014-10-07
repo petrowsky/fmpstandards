@@ -4,7 +4,7 @@
  *
  * PURPOSE:
  *		Return if a value exists within a return delimited list
- * 
+ *
  * RETURNS:
  *		(boolean) True if it exists, False if not
  *
@@ -17,7 +17,7 @@
  * HISTORY:
  *		2011-01-13 - Petrowsky - Added to custom functions
  * =====================================================
- * 
+ *
  */
 
 PatternCount ( ¶& valueList &¶ ; ¶& value &¶ ) ≥ 1

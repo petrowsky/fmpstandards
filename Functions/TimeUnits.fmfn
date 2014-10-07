@@ -5,10 +5,10 @@
  * PURPOSE:
  *		Return a numerical amount of seconds based on the
  *		supplied amount in the units specified
- *		
+ *
  * RETURNS:
  *		(number) seconds
- *		
+ *
  * PARAMETERS:
  *		amount = (number)
  *		unit = (enum) minutes, hours, days, months, years

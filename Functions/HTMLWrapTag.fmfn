@@ -5,7 +5,7 @@
  * PURPOSE:
  *		Wrap a HTML/XML tag around the supplied values
  *		or singular value.
- * 
+ *
  * RETURNS:
  *		(string) <tag>data</tag>
  *
@@ -25,7 +25,7 @@
  * REFERENCES:
  *		none
  * =====================================================
- * 
+ *
  */
 
 Let ([

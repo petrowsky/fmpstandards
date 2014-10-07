@@ -6,10 +6,10 @@
  *		Replace all merge <<$variables>> with
  *		data found in those layout objects named
  *		as valid $variables.
- *		
+ *
  * RETURNS:
  *		(string) Merged content
- *		
+ *
  * PARAMETERS:
  *		content = A string of text containing <<$variables>>
  *		variables = Return delimited string of $variable = assignments (see LayoutVariables function)
@@ -45,6 +45,6 @@ If ( #Assign ( variables );
 			False // merge content could not be evaluated
 		)
 	);
-	
+
 	False // variables could not be created
 )

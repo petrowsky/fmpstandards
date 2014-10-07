@@ -6,10 +6,10 @@
  *		Extract all layout objects named as a $variable
  *		in order to declare those objects and their
  *		content as valid $variables.
- *		
+ *
  * RETURNS:
  *		(string) Internal portion of a Let() for use with #Assign()
- *		
+ *
  * PARAMETERS:
  *		layout = the name of the target layout
  *

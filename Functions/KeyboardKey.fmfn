@@ -28,7 +28,7 @@
  *		2013-07-02 Updated to proper filemakerstandards.org style guide
  *
  * REFERENCES:
- *		
+ *
  * =====================================
  */
 
@@ -183,7 +183,7 @@ Let ( [
 		name = "editing" and ~editing or
 		name = "punctuation" and ~punctuation;
 			True;
-			
+
 			// Default
 			False
 	)

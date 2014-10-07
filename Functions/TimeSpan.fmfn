@@ -5,7 +5,7 @@ Let ( [
     d1 = Case ( neg < 0 ; date2 ; date1 ) ;
     d2 = Case ( neg < 0 ; date1 ; date2 ) ;
 
-    d = Mod ( Day ( d2 ) - Day ( d1 ) ; Day ( 
+    d = Mod ( Day ( d2 ) - Day ( d1 ) ; Day (
       Date ( Month ( d1 ) + 1 ; 0; Year ( d1 ) ) ) ) ;
 
     m = Mod ( Month ( d2 ) - Month ( d1 ) -
@@ -14,8 +14,8 @@ Let ( [
     y = Year ( d2 ) - Year ( d1 ) - ( ( Month ( d2 ) -
       ( Day ( d2 ) < Day ( d1 ) ) ) < Month ( d1 ) )
   ];
-    y * neg & ¶ & 
-    m * neg & ¶ &  
+    y * neg & ¶ &
+    m * neg & ¶ &
     d * neg & ¶ &
     y & " years, " & m & " months, and " & d & " days" & ¶
 )

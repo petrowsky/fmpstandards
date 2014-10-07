@@ -11,14 +11,14 @@
  * RETURNS:
  * 		(string) AppleScript code
  * DEPENDENCIES:
- *		none 
+ *		none
  * NOTES:
  *		This calculation contains the shell code needed to make a folder on OS X
  *		"if [ ! -d $path ];then mkdir $path; open $path; else open $path; fi"
  * HISTORY:
  *		12/29/11 - Matt Petrowsky - updated
  * =====================================================
- * 
+ *
  */
 
 Let( [

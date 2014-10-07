@@ -5,10 +5,10 @@
  * PURPOSE:
  *		Convenience function for working with
  *		abstracted field references within code.
- *		
+ *
  * RETURNS:
  *		(string) name of just the field portion from a field reference
- *		
+ *
  * PARAMETERS:
  *		fieldRef = Absolute field reference
  *

@@ -5,7 +5,7 @@
  * PURPOSE:
  *		Apply the data:text/html setting to any valid
  *		HTML which will be displayed using a web viewer.
- * 
+ *
  * RETURNS:
  *		(string) local html content for a web viewer
  *
@@ -27,7 +27,7 @@
  * REFERENCES:
  *		none
  * =====================================================
- * 
+ *
  */
 
 "data:text/html," &

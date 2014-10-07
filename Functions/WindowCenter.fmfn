@@ -1,7 +1,7 @@
 /**
  * =====================================================
  * WindowCenter ( dimension )
- * 
+ *
  * PARAMETERS:
  *		dimension: (enumeration) Vertical, Horizontal
  *
@@ -22,7 +22,7 @@
  *		$childWindowWidth MUST BE SET! when centering on parent
  *		$childWindowHeight MUST BE SET! when centering on parent
  * =====================================================
- * 
+ *
  */
 
 Let ( [

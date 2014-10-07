@@ -1,7 +1,7 @@
 /**
  * =====================================================
  * Debug ( )
- * 
+ *
  * PARAMETERS:
  *		none
  *
@@ -20,7 +20,7 @@
  * 		2013-01-25 - Updated to be recursive and use better output. Included more functions
  * 		101009 - Initial by Matt Petrowsky
  * =====================================================
- * 
+ *
  */
 
 If ( Developer;

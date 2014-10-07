@@ -1,7 +1,7 @@
 /**
  * =====================================================
  * DeveloperProperties ( hide )
- * 
+ *
  * PURPOSE:
  *		Set reserved namespace variables of
  *		$$ CURRENT.WHATEVER to contain useful
@@ -20,7 +20,7 @@
  *		this causes these global variables to
  *		be sorted at the top of the Data Viewer
  * =====================================================
- * 
+ *
  */
 
 If ( Developer; // only set global variables for developers to prevent snooping
@@ -40,6 +40,6 @@ If ( Developer; // only set global variables for developers to prevent snooping
 		// when the text is set to hide using the same color as the background
 		If ( not hide ; False ; True )
 	);
-	
+
 	True // Always return true for non developer when used on conditional formatting
 )

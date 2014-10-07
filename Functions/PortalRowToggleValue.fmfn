@@ -12,11 +12,11 @@
  *                  (string) Return delimited list of values
  *                  with the value either added or removed.
  * DEPENDENCIES:
- *                  none 
+ *                  none
  * NOTES:
  * HISTORY:         1/18/11 - Matt Petrowsky
  * =====================================================
- * 
+ *
  */
 
 Let ( [
@@ -24,9 +24,9 @@ Let ( [
 	~rowValue = GetNthRecord ( rowField ; Get ( ActivePortalRowNumber ) )
 ];
 	If ( IsEmpty ( FilterValues ( ~keyField ; ~rowValue ) ); // it doesn't exist
-		
+
 		List ( ~keyField; ~rowValue ); // add it, otherwise...
-		
+
 		Substitute( "¶¶" & ~keyField & "¶¶"; // remove it
 					[ ¶ & ~rowValue & ¶ ; ¶ ];
 					["¶¶¶"; ""];

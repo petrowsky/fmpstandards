@@ -1,7 +1,7 @@
 /**
  * =====================================================
  * Dirname ( path )
- * 
+ *
  * PURPOSE:
  *		Return the parent folder of the supplied path
  * PARAMETERS:
@@ -16,7 +16,7 @@
  *		it can only use information within the path - such
  *		as the existence of a trailing path separator
  * =====================================================
- * 
+ *
  */
 
 Let ( [

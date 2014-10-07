@@ -6,7 +6,7 @@
  *                To be used within an auto-enter calculation
  *                in order to evaluate the name of the field
  *                as a Get () parameter
- * 
+ *
  * PARAMETERS:
  *                @field = (reference) a field
  * RETURNS:
@@ -17,7 +17,7 @@
  * NOTES:
  *                This function has a very specific use
  * =====================================================
- * 
+ *
  */
 
 Let ( [
