@@ -1,0 +1,30 @@
+/**
+ * =====================================
+ * DatabaseFieldNames ( occurrenceName )
+ *
+ * PURPOSE:
+ * 		Return a list of fields from the  target table occurrence
+ *
+ * RETURNS:
+ * 		(list) Return delimeted list of field names
+ *
+ * PARAMETERS:
+ * 		occurrenceName: a valid table occurrence name
+ *
+ * EXAMPLES:
+ * 		none
+ *
+ * DEPENDENCIES:
+ *		none
+ *
+ * NOTE:
+ * 		none
+ *
+ * HISTORY:
+ * 		CREATED on 2014-07-24 by Matt Petrowsky (matt@filemakermagazine.com)
+ *
+ * REFERENCES:
+ * 		none
+ * =====================================
+ */
+ExecuteSQL ( "SELECT FieldName FROM FileMaker_Fields WHERE TableName = '" & occurrenceName & "' ORDER BY FieldName" ; "" ; ""  )
