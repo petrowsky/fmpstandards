@@ -22,7 +22,7 @@
  *
  * HISTORY:
  *		RELEASED: 2013-08-21 by matt@filemakermagazine.com
- * 
+ *
  * REFERENCES:
  *		https://github.com/filemakerstandards/fmpstandards/blob/master/Functions/FileOSPath.fmfn
  * =====================================================
@@ -39,7 +39,8 @@ Let( [
 		path
 	);
 	~macPath = "/Volumes" & Substitute( ~newPath; ¶; "¶/Volumes");
-	~winPath = Substitute( Middle( Substitute ( ~newPath ; "/" ; "\\" ); 2; 1000000 ); "¶\\"; "¶")
+	~winPath = Substitute( Middle( Substitute ( ~newPath ; "/" ; "\\" ); 2; 1000000 ); "¶\\"; "¶");
+	~goPath = ~newPath
 ];
 	Choose ( Abs ( Get( SystemPlatform ) ) - 1 ;
 		// Macintosh
@@ -49,6 +50,6 @@ Let( [
 		~winPath;
 
 		// iOS
-		"undefined"
+		~goPath
 	)
 )
