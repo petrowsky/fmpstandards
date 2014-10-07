@@ -1,0 +1,41 @@
+/**
+ * =====================================
+ * LayoutPosition ( layoutId )
+ *
+ * PURPOSE:
+ *		Return the numeric position of a layout.
+ *
+ * RETURNS:
+ *		(number) Layout number
+ *
+ * PARAMETERS:
+ *		layoutId: an internal layout id as derived from LayoutIDs function
+ *
+ * EXAMPLES:
+ * 		LayoutPosition ( 24 ) = 10 where layout id 24 is the 10th layout out of
+ *		all layouts in the solution.
+ *
+ * DEPENDENCIES:
+ *		none
+ *
+ * NOTES:
+ *		None
+ *
+ * HISTORY:
+ *		CREATED on 2014-06-04 by matt@filemakermagazine.com
+ *
+ * REFERENCES:
+ *		none
+ * =====================================
+ */
+
+Let ( [
+	~valueReplaced = Substitute ( ¶& LayoutIDs ( Get ( FileName ) ) &¶ ; ¶& id &¶ ; "¶•¶" )
+];
+	Position (
+		Substitute ( Filter ( ~valueReplaced ; "•¶" ) ; [ ¶ ; "|" ] );
+		"•" ;
+		1 ;
+		1
+	) - 1
+)
