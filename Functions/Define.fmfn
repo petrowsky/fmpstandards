@@ -1,0 +1,51 @@
+/**
+ * =====================================
+ * Define ( name ; value ; store )
+ *
+ * RETURNS:
+ *    True or False based on creation and storage of a global variable.
+ *
+ * PARAMETERS:
+ *    name: (string) The name for the global variable.
+ *    value: (mixed) The value to stored in the global variable.
+ *    store: (fm var) Either a $var or $$VAR in which the name of the variable is stored.
+ *
+ * EXAMPLE:
+ *		Define ( "foo" ; "bar" "$$VARIABLES" ) // $$FOO = "bar" and $$VARIABLES contains FOO
+ *
+ * DEPENDENCIES:
+ *		none
+ *
+ * HISTORY:
+ *		UPDATED on 2014-10-07 by Matt Petrowsky <matt@isoproductions.com>.
+ *
+ * REFERENCES:
+ *    none
+ * =====================================
+ */
+
+Let ( [
+	// preserve data type by using a variable
+	$~value = value
+];
+	Let ( [
+		~globalName = Upper ( Substitute ( name ; "$" ; "" ) );
+		~globalVar = "$$" & ~globalName;
+		~evaluateString = "Let ( " & ~globalVar & " = $~value; True )"
+	];
+		If ( IsValidExpression ( ~evaluateString );
+			// Insert the name of the variable into the designated store ( a variable itself )
+			Let ( [
+				~variableNames = Evaluate ( store );
+				~valueExists = not IsEmpty ( FilterValues ( ~variableNames ; ~globalName ) );
+				~storeString = "Let ( " & store & " = " & Quote ( If ( ~valueExists ; ~variableNames ; List ( ~variableNames ; ~globalName ) ) ) & "; True )"
+			];
+				// Create the variable IF IT DOES NOT EXIST - do not overwrite with this function if it does
+				Let ( ~setVariable =  If ( IsEmpty ( Evaluate ( ~globalVar ) ) ; Evaluate ( ~evaluateString ) ); True )
+				and not EvaluationError ( Evaluate ( ~storeString ) )
+			);
+			// default
+			Let ( $Define.error = List ( "Error: " & EvaluationError ( Evaluate ( ~evaluateString ) ) ; ~evaluateString ) ; False )
+		)
+	)
+)
