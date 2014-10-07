@@ -25,6 +25,7 @@
  *		similar code wtihin a FileMaker solution.
  *
  * HISTORY:
+ *		MODIFIED on 2014-06-17 by matt@filemakermagazine.com - adding repetition
  *		MODIFIED on 2012-05-11 by matt@filemakermagazine.com - added
  *
  * REFERENCES:
@@ -33,3 +34,4 @@
  */
 
 Get ( ActiveFieldTableName ) & "::" & Get ( ActiveFieldName )
+& If ( Get ( ActiveRepetitionNumber ) > 1 ; "[" & Get ( ActiveRepetitionNumber ) & "]" )
