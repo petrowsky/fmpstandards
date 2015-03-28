@@ -1,0 +1,76 @@
+/**
+ * =====================================
+ * S3Url ( accessKey ; secretKey ; bucket ; file ; expiresTimestamp )
+ *
+ * PURPOSE:
+ *    Generate a valid S3 expirable download link.
+ *
+ * RETURNS:
+ *    (string) valid Amazon AWS S3 url
+ *
+ * PARAMETERS:
+ *    accessKey: a valid AWS access key
+ *    secretKey: a valid AWS secret key
+ *    bucket: name of an existing bucket
+ *    file: the path to a file within the bucket
+ *    expiresTimestamp: a valid FileMaker timestamp value, typically in the future
+ *
+ * EXAMPLES:
+ *    S3Url ( "1F8XQWPN96WHFY16MV02" ; "sadfi98dfsd834d96dDF/G324+dw" ; "filemakerthemes" ; "Protected.zip" ; Get ( CurrentTimeStamp ) + ( 3600 * 24 ) )
+ *    // = https://filemakerthemes.s3.amazonaws.com/Protected.zip?AWSAccessKeyId=1F8XQWPN96WHFY16MV02&Expires=1427605250&Signature=ClAZEC3daVdoMEJwdlU2WEjA%2Fsc%3D
+ *
+ * DEPENDENCIES:
+ *
+ *    PLUGIN: BaseElements
+ *
+ * NOTE:
+ *    Your accessKey identifies your account and it must be associated
+ *    to the root full access of your AWS account or an IAM user with a
+ *    minimum of the AmazonS3ReadOnlyAccess policy associated.
+ *    HTTPS warning: If your bucket name includes periods, the url may
+ *    generate a certificate warning within browsers.
+ *
+ * HISTORY:
+ *    CREATED on 2015-03-25 by Matt Petrowsky (matt@filemakermagazine.com)
+ *
+ * REFERENCES:
+ *    https://aws.amazon.com
+ *    http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html
+ * =====================================
+ */
+
+Let ( [
+  ~utcOffset = Get ( CurrentTimeStamp ) - Floor ( Get ( CurrentTimeUTCMilliseconds ) / 1000 );
+
+  ~endpoint = "s3.amazonaws.com";
+  ~file = GetAsURLEncoded ( file );
+  ~path = bucket & "/" & ~file;
+  ~expires = If ( IsEmpty ( expiresTimestamp ) ; Get ( CurrentTimeStamp ) + ( 3600 * 24 ) ; expiresTimestamp ); // default to +1 day
+  ~expiresUTC = GetAsNumber ( ~expires ) - GetAsNumber ( GetAsTimestamp ( Date ( 1 ; 1 ; 1970 ) ) ) - ~utcOffset;
+
+  ~request = "GET¶¶¶" & ~expiresUTC & "¶/" &~path;
+  ~request = Substitute ( ~request ; ¶ ; Char ( 10 ) ); // because we need valid returns
+
+  ~signature = BE_HMAC ( ~request ; secretKey ; BE_MessageDigestAlgorithm_SHA1 ; BE_Encoding_Base64 );
+
+  ~url = "https://" & bucket & "." & ~endpoint & "/" & ~file;
+  ~url = ~url & "?AWSAccessKeyId=" & accessKey;
+  ~url = ~url & "&Expires=" & ~expiresUTC;
+  ~url = ~url & "&Signature=" & GetAsURLEncoded ( ~signature )
+
+];
+  ~url
+
+  /* // Debug info
+  List (
+    ~request;
+    ~signature;
+    ~url;
+  )
+  */
+)
+
+/*
+This function requires the BaseElements plugin in order to
+create the HMAC digest
+*/
