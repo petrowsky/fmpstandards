@@ -21,6 +21,8 @@
  *		* ~serverIPAddress defaults to first listed if IPAddress is blank
  *
  * HISTORY:
+ *		UPDATED on 2015-06-30 by Matt Petrowsky to account for
+ *		http://help.filemaker.com/app/answers/detail/a_id/11358
  *		UPDATED on 2014-04-07 by Matt Petrowsky to account for 13.0v2 fmp:// url changes
  *		http://help.filemaker.com/app/answers/detail/a_id/13313
  * 		CREATED on 2012-10-04 by Matt Petrowsky (matt@filemakermagazine.com).
@@ -40,13 +42,13 @@ Let ( [
 ];
 	"fmp://" & Case (
 		~isMobile and ~isLocal; // when the db is local to a mobile device
-			"~";
+			"%7e"; // using encoded tilde
 
 		~isServer;
 			~serverIPAddress; // server side scripts would use "127.0.0.1" - which isn't good
 
 		~isLocal and ~fmpVersion ≥ 13.02;
-			"$";
+			"%24"; // using encoded dollar sign
 
 		~isLocal;
 			GetValue ( Get ( SystemIPAddress ) ; 1 ); // assume first ip for local dev
