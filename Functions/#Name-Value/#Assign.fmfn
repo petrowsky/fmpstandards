@@ -21,6 +21,8 @@
  *		Notes go here
  *
  * HISTORY:
+ *		MODIFIED on 2015-10-27 by Matt Petrowsky to support weak formatted
+ *		return delimited input.
  *		MODIFIED on 2013-03-15 by Daniel Smith <http://scr.im/dansmith> to
  *		update documentation to match functions actual return value.
  *		MODIFIED on 2012-11-28 by Jeremy Bante <http://scr.im/jbante> to support
@@ -30,11 +32,20 @@
  */
 
 Let ( [
+	~semiCount = PatternCount ( parameters ; ";¶" );
+	~rowCount = ValueCount ( parameters );
+	~validFormat = ~semiCount = ~rowCount;
+	~variables = Case (
+		~semiCount = 0;
+			Substitute ( parameters ; ¶ ; ";¶" ) & ";";
+
+		parameters
+	);
 	~error =
 		EvaluationError ( Evaluate (
 			"Let ( [¶"
 			& Substitute (	// convert global variables to local variables
-				¶ & parameters;
+				¶ & ~variables;
 				"¶$$";
 				"¶$"
 			)
