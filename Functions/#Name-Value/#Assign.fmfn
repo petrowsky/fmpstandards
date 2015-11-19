@@ -32,9 +32,9 @@
  */
 
 Let ( [
-	~semiCount = PatternCount ( parameters ; ";¶" );
 	~variables = Case (
-		~semiCount = 0 and not IsEmpty ( parameters );
+		not PatternCount ( parameters ; ";¶" )
+		and not IsEmpty ( parameters );
 			Substitute ( parameters ; ¶ ; ";¶" ) & ";";
 
 		parameters
