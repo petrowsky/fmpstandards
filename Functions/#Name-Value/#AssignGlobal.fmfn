@@ -27,8 +27,6 @@
 
 Let ( [
 	~semiCount = PatternCount ( parameters ; ";¶" );
-	~rowCount = ValueCount ( parameters );
-	~validFormat = ~semiCount = ~rowCount;
 	~variables = Case (
 		~semiCount = 0 and not IsEmpty ( parameters );
 			Substitute ( parameters ; ¶ ; ";¶" ) & ";";
@@ -39,7 +37,7 @@ Let ( [
 		EvaluationError ( Evaluate (
 			"Let ( ["
 			& Substitute (	// convert $local to $$GLOBAL variables
-				¶ & parameters;
+				¶ & ~variables;
 				[ "¶$$" ; "¶$" ];	// ... without renaming existing $$GLOBALS
 				[ "¶$" ; "¶$$" ]
 			)
