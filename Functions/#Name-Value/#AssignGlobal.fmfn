@@ -19,11 +19,22 @@
  *		Notes go here
  *
  * HISTORY:
+ *		MODIFIED on 2015-11-18 by Matt Petrowsky to support weak formatted
+ *		return delimited input.
  *		CREATED on 2012-12-04 by Jeremy Bante <http://scr.im/jbante>.
  * =====================================
  */
 
 Let ( [
+	~semiCount = PatternCount ( parameters ; ";¶" );
+	~rowCount = ValueCount ( parameters );
+	~validFormat = ~semiCount = ~rowCount;
+	~variables = Case (
+		~semiCount = 0 and not IsEmpty ( parameters );
+			Substitute ( parameters ; ¶ ; ";¶" ) & ";";
+
+		parameters
+	);
 	~error =
 		EvaluationError ( Evaluate (
 			"Let ( ["

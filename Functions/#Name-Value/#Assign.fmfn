@@ -36,7 +36,7 @@ Let ( [
 	~rowCount = ValueCount ( parameters );
 	~validFormat = ~semiCount = ~rowCount;
 	~variables = Case (
-		~semiCount = 0;
+		~semiCount = 0 and not IsEmpty ( parameters );
 			Substitute ( parameters ; ¶ ; ";¶" ) & ";";
 
 		parameters
