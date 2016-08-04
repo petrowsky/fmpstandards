@@ -1,7 +1,25 @@
-Let ( [
-	~pathParts = Substitute ( Get ( FilePath ) ; "/" ; ¶ );
-	~filename = GetValue ( ~pathParts ; ValueCount ( ~pathParts ) );
-	~dotCount = PatternCount ( ~filename ; "." )
-];
-	Middle ( ~filename ; Position ( ~filename ; "." ; 1 ; ~dotCount ) ; 10 )
-)
+/**
+ * =====================================
+ * FileExtension ( path )
+ *
+ * RETURNS:
+ *		The extension of the provided path.
+ *
+ * PARAMETERS:
+ *		path: Any valid file path with the /filename.extension at the end.
+ *
+ * EXAMPLES:
+ *		FileExtension ( "fmnet:/dev.server/MyDatabase.fmp12" ) // returns fmp12
+ *		FileExtension ( "/Volumes/some/path/to/file.svg" ) // returns svg
+ *
+ * DEPENDENCIES: none
+ *
+ * HISTORY:
+ *		CREATED on 2016-08-04.
+ *
+ * REFERENCES:
+ *		none
+ * =====================================
+ */
+
+RightWords ( Substitute ( Button Bar Maker::DROP ; "." ; ¶ ) ; 1 )

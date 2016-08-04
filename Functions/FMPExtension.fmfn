@@ -1,0 +1,7 @@
+Let ( [
+	~pathParts = Substitute ( Get ( FilePath ) ; "/" ; ¶ );
+	~filename = GetValue ( ~pathParts ; ValueCount ( ~pathParts ) );
+	~dotCount = PatternCount ( ~filename ; "." )
+];
+	Middle ( ~filename ; Position ( ~filename ; "." ; 1 ; ~dotCount ) ; 10 )
+)
