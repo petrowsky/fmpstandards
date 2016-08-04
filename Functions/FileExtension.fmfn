@@ -22,4 +22,4 @@
  * =====================================
  */
 
-RightWords ( Substitute ( Button Bar Maker::DROP ; "." ; ¶ ) ; 1 )
+RightWords ( Substitute ( path ; "." ; ¶ ) ; 1 )
