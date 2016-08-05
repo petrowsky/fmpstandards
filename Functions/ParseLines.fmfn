@@ -1,0 +1,10 @@
+// Function used to parse out labeled lines like a header
+
+Let ( [
+	~content = content & ¶;
+	~match = label;
+	~start = Position ( ~content ; ~match ; 1 ; 1 ) + Length ( ~match );
+	~end = Position ( ~content ; ¶ ; ~start ; 1 )
+];
+	Middle ( ~content ; ~start ; ~end - ~start )
+)
