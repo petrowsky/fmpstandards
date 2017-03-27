@@ -11,7 +11,8 @@
  *		scriptNameToParse: A script name. Defaults to Get ( ScriptName ) when
  *		left empty.
  *
- * DEPENDENCIES: none
+ * DEPENDENCIES:
+ * 		ScriptRequiredParameterList ( scriptNameToParse )
  *
  * HISTORY:
  *		MODIFIED on 2013-06-29 by Jeremy Bante <http://scr.im/jbante> to append
